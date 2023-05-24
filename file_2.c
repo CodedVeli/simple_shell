@@ -77,23 +77,25 @@ void check_chain(info_t *info, char *buf, size_t *p, size_t i, size_t len)
  */
 int replace_alias(info_t *info)
 {
-	int i;
+	int i = 0;
 	list_t *node;
 	char *p;
 
-	for (i = 0; i < 10; i++)
+	while (i < 10)
 	{
 		node = node_starts_with(info->alias, info->argv[0], '=');
 		if (!node)
 			return (0);
+
 		free(info->argv[0]);
-		p = _strchr(node->str, '=');
+		p = strchr(node->str, '=');
 		if (!p)
 			return (0);
-		p = _strdup(p + 1);
+		p = strdup(p + 1);
 		if (!p)
 			return (0);
 		info->argv[0] = p;
+		i++;
 	}
 	return (1);
 }

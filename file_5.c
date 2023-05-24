@@ -1,49 +1,43 @@
 #include "shell.h"
 
 /**
- **_strncpy - copies a string
- *@dest: the destination string to be copied to
- *@src: the source string
- *@n: the amount of characters to be copied
- *Return: the concatenated string
+ * _strncpy - Copies a string up to n bytes from source to destination.
+ * @dest: The destination string.
+ * @src: The source string.
+ * @n: The maximum number of bytes to be copied.
+ *
+ * Return: Pointer to the destination string.
  */
 char *_strncpy(char *dest, char *src, int n)
 {
 	int i, j;
 	char *s = dest;
 
-	i = 0;
-	while (src[i] != '\0' && i < n - 1)
-	{
+	for (i = 0; src[i] != '\0' && i < n - 1; i++)
 		dest[i] = src[i];
-		i++;
-	}
+
 	if (i < n)
 	{
-		j = i;
-		while (j < n)
-		{
+		for (j = i; j < n; j++)
 			dest[j] = '\0';
-			j++;
-		}
 	}
+
 	return (s);
 }
 
 /**
- **_strncat - concatenates two strings
- *@dest: the first string
- *@src: the second string
- *@n: the amount of bytes to be maximally used
- *Return: the concatenated string
+ * _strncat - Concatenates a string up to n bytes from source to destination.
+ * @dest: The destination string.
+ * @src: The source string.
+ * @n: The maximum number of bytes to be concatenated.
+ *
+ * Return: Pointer to the destination string.
  */
 char *_strncat(char *dest, char *src, int n)
 {
-	int i, j;
+	int i = 0, j = 0;
 	char *s = dest;
 
-	i = 0;
-	j = 0;
 	while (dest[i] != '\0')
 		i++;
 	while (src[j] != '\0' && j < n)
@@ -54,6 +48,7 @@ char *_strncat(char *dest, char *src, int n)
 	}
 	if (j < n)
 		dest[i] = '\0';
+
 	return (s);
 }
 
