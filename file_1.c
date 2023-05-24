@@ -39,10 +39,10 @@ int is_delim(char c, char *delim)
 
 int _isalpha(int c)
 {
-    if (isalpha(c))
-        return 1;
-    else
-        return 0;
+	if (isalpha(c))
+		return (1);
+	else
+		return (0);
 }
 
 /**
